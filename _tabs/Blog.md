@@ -1,20 +1,26 @@
 ---
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 0
+layout: page
+title: Blog
+icon: fas fa-blog
+order: 1
 ---
 
-<!-- > Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip } -->
 
-Welcome! Here are some of my engineering projects.
 
-<ul>
-{% for post in site.categories.blog %}
-  <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    — <small>{{ post.date | date: "%b %d, %Y" }}</small><br/>
-    {{ post.excerpt }}
-  </li>
+<!-- ---
+layout: page
+title: Blog
+icon: fas fa-blog
+order: 1
+--- -->
+
+Welcome! Here are some of my posts about topics and projects I've done that I found interesting.
+
+{% for post in site.posts %}
+### [{{ post.title }}]({{ post.url | relative_url }})
+<small>{{ post.date | date: "%b %d, %Y" }}</small>
+
+{{ post.excerpt }}
+
+---
 {% endfor %}
-</ul>
